@@ -4,7 +4,7 @@ using NUnit.Framework;
 using System;
 using System.Configuration;
 using Selenium.QuickStart.Attributes;
-
+using Base2.Mantis.Test.Automation.Challenge.Data;
 
 namespace Mantis_Warley.Tests
 {

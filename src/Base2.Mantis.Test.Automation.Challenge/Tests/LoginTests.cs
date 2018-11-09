@@ -4,6 +4,8 @@ using Mantis_Warley.Pages;
 using Selenium.QuickStart.Core;
 using NUnit.Framework;
 using Selenium.QuickStart.Attributes;
+using Selenium.QuickStart.Utilities;
+using Base2.Mantis.Test.Automation.Challenge.Data;
 
 namespace Mantis_Warley.Tests
 {
@@ -19,13 +21,18 @@ namespace Mantis_Warley.Tests
         [Test]
         public void Test_CheckNavigationToLoginPage()
         {
+            SqliteFactory.PrepareDatabaseIfNecessary();
+            var a = DatabaseSqlFactory.ExecuteQuery("SELECT * FROM BUGS");
             _LoginPage.NavigateToPage();
             Assert.That(_LoginPage.IsOnLoginPage());
         }
 
-        [Test]
-        public void Test_CheckValidLoginAttempt()
+        [Test, TestCaseSource(typeof(TestData), "IssuesToReport")]
+        public void Test_CheckValidLoginAttempt(string[] data)
         {
+            string guid = data[0];
+            string issueName = data[1];
+            string issueDescription = data[2];
             _LoginPage.Login(user, pass);
             Assert.That(_LoginPage.IsLoggedIn());
         }
