@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using System.Collections;
 using Selenium.QuickStart.Utilities;
+using System.Resources;
 
 namespace Base2.Mantis.Test.Automation.Challenge.Data
 {
@@ -10,7 +11,7 @@ namespace Base2.Mantis.Test.Automation.Challenge.Data
         {
             get
             {
-                foreach(string[] data in CsvReader.GetData("MyDataSource"))
+                foreach(string[] data in CsvReader.GetData(Properties.Resources.MyDataSource))
                     yield return new TestCaseData(data);
             }
         }
