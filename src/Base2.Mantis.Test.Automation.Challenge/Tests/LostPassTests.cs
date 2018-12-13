@@ -8,7 +8,6 @@ using Base2.Mantis.Test.Automation.Challenge.Data;
 
 namespace Mantis_Warley.Tests
 {
-    [TestFixture]
     public class LostPassTests : TestBase
     {
         #pragma warning disable CS0649

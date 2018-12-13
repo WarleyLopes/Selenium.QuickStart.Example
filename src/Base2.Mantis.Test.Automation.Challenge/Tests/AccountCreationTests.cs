@@ -7,7 +7,6 @@ using Selenium.QuickStart.Attributes;
 
 namespace Mantis_Warley.Tests
 {
-    [TestFixture]
     public class AccountCreationTests : TestBase
     {
         #pragma warning disable CS0649
