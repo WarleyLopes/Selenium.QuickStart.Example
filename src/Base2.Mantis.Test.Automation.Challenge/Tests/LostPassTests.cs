@@ -1,17 +1,17 @@
 ﻿using Mantis_Warley.Pages;
-using Selenium.QuickStart.Core;
+using Selenium.QuickStart.Nucleo;
 using NUnit.Framework;
 using System;
 using System.Configuration;
-using Selenium.QuickStart.Attributes;
-using Base2.Mantis.Test.Automation.Challenge.Data;
+using Selenium.QuickStart.Atributos;
+using Base2.Mantis.Test.Automation.Challenge.Resources;
 
 namespace Mantis_Warley.Tests
 {
-    public class LostPassTests : TestBase
+    public class LostPassTests : BaseDeTeste
     {
         #pragma warning disable CS0649
-        [PageObject] LostPassPage _LostPassPage;
+        [PaginaEmPageObjectModel] LostPassPage _LostPassPage;
         #pragma warning restore CS0649
         public string user = ConfigurationManager.AppSettings["USERNAME"];
         public string email = ConfigurationManager.AppSettings["EMAIL"];
@@ -35,7 +35,7 @@ namespace Mantis_Warley.Tests
         {
             new LoginPage().TypeUserAndClickToRecoverForgottenPassword(user);
             _LostPassPage.RequestPassRecovery(user, email);
-            Assert.That(WebDriverHooks.Driver.Url.Contains("login_page.php?return=lost_pwd.php"));
+            Assert.That(GerenciadorDoWebDriver.Driver.Url.Contains("login_page.php?return=lost_pwd.php"));
         }
 
         [Test]

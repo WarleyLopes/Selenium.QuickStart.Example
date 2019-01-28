@@ -1,19 +1,19 @@
-﻿using Selenium.QuickStart.Core;
+﻿using Selenium.QuickStart.Nucleo;
 using OpenQA.Selenium;
 
 namespace Mantis_Warley.Pages
 {
     public class LostPassPage
     {
-        private IWebElement TxtUser => WebDriverHooks.Driver.FindElement(By.Id("username"));
-        private IWebElement TxtEmail => WebDriverHooks.Driver.FindElement(By.Id("email-field"));
-        private IWebElement BtnSend => WebDriverHooks.Driver.FindElement(By.XPath("//input[@type='submit' and @value='Enviar']"));
-        private IWebElement LinkLoginPage => WebDriverHooks.Driver.FindElement(By.XPath("//a[text() = 'Entrar']"));
-        private IWebElement LinkCreateAccount => WebDriverHooks.Driver.FindElement(By.XPath("//a[text() = 'criar uma nova conta']"));
+        private IWebElement TxtUser => GerenciadorDoWebDriver.ProcuraElementoAguardandoAparecer(By.Id("username"));
+        private IWebElement TxtEmail => GerenciadorDoWebDriver.ProcuraElementoAguardandoAparecer(By.Id("email-field"));
+        private IWebElement BtnSend => GerenciadorDoWebDriver.ProcuraElementoAguardandoAparecer(By.XPath("//input[@type='submit' and @value='Enviar']"));
+        private IWebElement LinkLoginPage => GerenciadorDoWebDriver.ProcuraElementoAguardandoAparecer(By.XPath("//a[text() = 'Entrar']"));
+        private IWebElement LinkCreateAccount => GerenciadorDoWebDriver.ProcuraElementoAguardandoAparecer(By.XPath("//a[text() = 'criar uma nova conta']"));
 
         public bool IsOnLostPassPage()
         {
-            return WebDriverHooks.WaitForAndFindElement(By.XPath("//h4[text()[contains(.,'Reajuste de Senha')]]")).Displayed;
+            return GerenciadorDoWebDriver.ProcuraElementoAguardandoAparecer(By.XPath("//h4[text()[contains(.,'Reajuste de Senha')]]")).Displayed;
         }
 
         public LoginPage NavigateToLoginPage()
@@ -38,7 +38,7 @@ namespace Mantis_Warley.Pages
 
         public bool IsRequestPassRecoveryAttemptMessageDisplayed(string message)
         {
-            return WebDriverHooks.WaitForAndFindElement(By.XPath("//p[text()[contains(.,'" + message + "')]]")).Displayed;
+            return GerenciadorDoWebDriver.ProcuraElementoAguardandoAparecer(By.XPath("//p[text()[contains(.,'" + message + "')]]")).Displayed;
         }
     }
 }

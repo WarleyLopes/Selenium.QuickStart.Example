@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Configuration;
 using Mantis_Warley.Pages;
-using Selenium.QuickStart.Core;
+using Selenium.QuickStart.Nucleo;
 using NUnit.Framework;
-using Selenium.QuickStart.Attributes;
-using Selenium.QuickStart.Utilities;
-using Base2.Mantis.Test.Automation.Challenge.Data;
+using Selenium.QuickStart.Atributos;
+using Selenium.QuickStart.Utilidades;
+using Base2.Mantis.Test.Automation.Challenge.Resources;
 
 namespace Mantis_Warley.Tests
 {
-    public class LoginTests : TestBase
+    public class LoginTests : BaseDeTeste
     {
         #pragma warning disable CS0649
-        [PageObject] LoginPage _LoginPage;
+        [PaginaEmPageObjectModel] LoginPage _LoginPage;
         #pragma warning restore CS0649
         public string user = ConfigurationManager.AppSettings["USERNAME"];
         public string pass = ConfigurationManager.AppSettings["PASSWORD"];
@@ -20,13 +20,13 @@ namespace Mantis_Warley.Tests
         [Test]
         public void Test_CheckNavigationToLoginPage()
         {
-            SqliteFactory.PrepareDatabaseIfNecessary();
-            var a = DatabaseSqlFactory.ExecuteQuery("SELECT * FROM BUGS");
+            ConectorBancoDeDadosSqlite.PreparaArquivoDoBancoDeDadosSeNecessario();
+            var a = ConectorBancoDeDadosSQL.ExecutarConsulta("SELECT * FROM BUGS");
             _LoginPage.NavigateToPage();
             Assert.That(_LoginPage.IsOnLoginPage());
         }
 
-        [Test, TestCaseSource(typeof(TestData), "IssuesToReport")]
+        [Test, TestCaseSource(typeof(RepositorioDataDriven), "TarefasParaReportarDoCsvMyDataSource")]
         public void Test_CheckValidLoginAttempt(string[] data)
         {
             string guid = data[0];

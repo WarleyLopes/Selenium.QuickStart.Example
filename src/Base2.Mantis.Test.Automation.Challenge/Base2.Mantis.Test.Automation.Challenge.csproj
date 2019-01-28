@@ -72,9 +72,6 @@
     <Reference Include="RazorEngine, Version=3.10.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
       <HintPath>packages\RazorEngine.3.10.0\lib\net45\RazorEngine.dll</HintPath>
     </Reference>
-    <Reference Include="Selenium.QuickStart, Version=0.8.7.4, Culture=neutral, processorArchitecture=x86">
-      <HintPath>packages\Selenium.QuickStart.0.8.7.4\lib\net461\Selenium.QuickStart.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
@@ -123,17 +120,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\SqliteFactory.cs" />
-    <Compile Include="Data\TestData.cs" />
-    <Compile Include="Pages\AccountCreationPage.cs" />
-    <Compile Include="Pages\LoginPage.cs" />
-    <Compile Include="Pages\LostPassPage.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\ConectorBancoDeDadosSqlite.cs" />
+    <Compile Include="Resources\RepositorioDataDriven.cs" />
+    <Compile Include="Pages\AccountCreationPage.cs" />
+    <Compile Include="Pages\LoginPage.cs" />
+    <Compile Include="Pages\LostPassPage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\AccountCreationTests.cs" />
     <Compile Include="Tests\LoginTests.cs" />
     <Compile Include="Tests\LostPassTests.cs" />
@@ -147,20 +144,22 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Resources\MyDataSource.csv" />
+    <None Include="Resources\TarefasParaReportar.csv" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="extent-config.xml" />
-    <Content Include="nunit.engine.api.dll" />
-    <Content Include="nunit.engine.dll" />
-    <Content Include="NUnit3.TestAdapter.dll" />
-    <Content Include="NUnit3.TestAdapter.pdb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Selenium.QuickStart\src\Selenium.QuickStart\Selenium.QuickStart.csproj">
+      <Project>{4B9F79BB-DC37-4963-9AF6-197DD0D89736}</Project>
+      <Name>Selenium.QuickStart</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

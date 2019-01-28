@@ -66,9 +66,9 @@ namespace Base2.Mantis.Test.Automation.Challenge.Properties {
         ///asdas asdsa adasd&quot;
         ///2;TC-02;asdas asdsa adasd.
         /// </summary>
-        internal static string MyDataSource {
+        internal static string TarefasParaReportar {
             get {
-                return ResourceManager.GetString("MyDataSource", resourceCulture);
+                return ResourceManager.GetString("TarefasParaReportar", resourceCulture);
             }
         }
     }
