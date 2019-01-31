@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Base2.Mantis.Test.Automation.Challenge", "Base2.Mantis.Test.Automation.Challenge.csproj", "{DC368156-B975-4D6D-AB1A-54ED87D6B027}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Desafio.Base2.Mantis", "Desafio.Base2.Mantis.csproj", "{DC368156-B975-4D6D-AB1A-54ED87D6B027}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium.QuickStart", "..\..\..\Selenium.QuickStart\src\Selenium.QuickStart\Selenium.QuickStart.csproj", "{4B9F79BB-DC37-4963-9AF6-197DD0D89736}"
 EndProject

@@ -1,7 +1,7 @@
 ﻿using Selenium.QuickStart.Nucleo;
 using OpenQA.Selenium;
 
-namespace Mantis_Warley.Paginas
+namespace Desafio.Base2.Mantis.Paginas
 {
     /// <summary>
     /// <para>Classe para mapeamento de elementos da página (POM) de Recuperação de Senha</para>
@@ -48,15 +48,15 @@ namespace Mantis_Warley.Paginas
         }
 
         /// <summary>
-        /// Método para enviar de fato o formulário de solicitação de recuperação de senha
+        /// Método para enviar o formulário de solicitação de recuperação de senha de uma conta
         /// </summary>
         /// <param name="usuario">Usuário da conta a ter sua senha recuperada</param>
-        /// <param name="senha">E-mail da conta a ter sua senha recuperada</param>
-        public void Efetuar_Solicitacao_De_Recuperacao_De_Senha(string usuario, string senha)
+        /// <param name="email">E-mail da conta a ter sua senha recuperada</param>
+        public void Efetuar_Solicitacao_De_Recuperacao_De_Senha(string usuario, string email)
         {
             Input_Usuario.Clear();
             Input_Usuario.SendKeys(usuario);
-            Input_Email.SendKeys(senha);
+            Input_Email.SendKeys(email);
             Bto_Enviar.Click();
         }
 

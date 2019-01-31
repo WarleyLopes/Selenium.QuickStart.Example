@@ -2,7 +2,7 @@
 using OpenQA.Selenium;
 using System.Configuration;
 
-namespace Mantis_Warley.Paginas
+namespace Desafio.Base2.Mantis.Paginas
 {
     /// <summary>
     /// <para>Classe para mapeamento de elementos da página (POM) de Login</para>

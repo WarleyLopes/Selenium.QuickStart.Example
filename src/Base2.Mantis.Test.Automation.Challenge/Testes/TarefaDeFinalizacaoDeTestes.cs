@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using Selenium.QuickStart.Nucleo;
 
-namespace Mantis_Warley.Testes
+namespace Desafio.Base2.Mantis.Testes
 {
     /// <summary>
     /// <para>Classe para implementar um teste vazio com nome fixo e específico com</para>

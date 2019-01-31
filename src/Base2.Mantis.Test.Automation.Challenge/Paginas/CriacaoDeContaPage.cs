@@ -1,7 +1,7 @@
 ﻿using Selenium.QuickStart.Nucleo;
 using OpenQA.Selenium;
 
-namespace Mantis_Warley.Paginas
+namespace Desafio.Base2.Mantis.Paginas
 {
     /// <summary>
     /// <para>Classe para mapeamento de elementos da página (POM) de Criação de Conta</para>

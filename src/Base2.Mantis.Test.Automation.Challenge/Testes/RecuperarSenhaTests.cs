@@ -1,12 +1,11 @@
-﻿using Mantis_Warley.Paginas;
+﻿using Desafio.Base2.Mantis.Paginas;
 using Selenium.QuickStart.Nucleo;
 using NUnit.Framework;
 using System;
 using System.Configuration;
 using Selenium.QuickStart.Atributos;
-using Base2.Mantis.Test.Automation.Challenge.Resources;
 
-namespace Mantis_Warley.Testes
+namespace Desafio.Base2.Mantis.Testes
 {
     /// <summary>
     /// <para>Classe com herança da classe BaseDeTeste com rotinas comuns para realização de testes e com</para>
@@ -61,7 +60,7 @@ namespace Mantis_Warley.Testes
         }
 
         [Test, Description("Valida exibição de mensagem ao tentar recuperar senha de conta inexistente")]
-        public void Teste_Efetuar_Solicitacao_De_Recuperacao_De_Senha_De_Conta_Inexistente()
+        public void Teste_Tentar_Solicitacao_De_Recuperacao_De_Senha_De_Conta_Inexistente()
         {
             new LoginPage().Digita_Usuario_E_Clica_Para_Recuperar_Senha(user);
 
@@ -77,7 +76,7 @@ namespace Mantis_Warley.Testes
 
         [Test, Description("Valida exibição de mensagem ao tentar recuperação" +
             " senha de conta com e-mail divergente do usuário")]
-        public void Teste_Efetuar_Solicitacao_De_Recuperacao_De_Senha_Com_Email_Divergente()
+        public void Teste_Tentar_Solicitacao_De_Recuperacao_De_Senha_Com_Email_Divergente()
         {
             new LoginPage().Digita_Usuario_E_Clica_Para_Recuperar_Senha(user);
 
@@ -93,7 +92,7 @@ namespace Mantis_Warley.Testes
 
         [Test, Description("Valida exibição de mensagem ao tentar recuperação" +
             " de conta com usuário divergente do e-mail")]
-        public void Teste_Efetuar_Solicitacao_De_Recuperacao_De_Senha_Com_Usuario_Divergente()
+        public void Teste_Tentar_Solicitacao_De_Recuperacao_De_Senha_Com_Usuario_Divergente()
         {
             new LoginPage().Digita_Usuario_E_Clica_Para_Recuperar_Senha(user);
 

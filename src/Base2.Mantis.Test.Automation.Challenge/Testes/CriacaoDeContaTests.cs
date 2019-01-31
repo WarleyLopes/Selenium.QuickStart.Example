@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Configuration;
-using Mantis_Warley.Paginas;
+using Desafio.Base2.Mantis.Paginas;
 using Selenium.QuickStart.Nucleo;
 using NUnit.Framework;
 using Selenium.QuickStart.Atributos;
 
-namespace Mantis_Warley.Testes
+namespace Desafio.Base2.Mantis.Testes
 {
     /// <summary>
     /// <para>Classe com herança da classe BaseDeTeste com rotinas comuns para realização de testes e</para>
