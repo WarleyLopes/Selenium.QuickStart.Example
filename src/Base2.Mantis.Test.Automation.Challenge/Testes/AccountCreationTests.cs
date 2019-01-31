@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Configuration;
-using Mantis_Warley.Pages;
+using Mantis_Warley.Paginas;
 using Selenium.QuickStart.Nucleo;
 using NUnit.Framework;
 using Selenium.QuickStart.Atributos;
@@ -18,14 +18,14 @@ namespace Mantis_Warley.Tests
         [Test]
         public void Test_CheckNavigationToLoginPage()
         {
-            new LoginPage().NavigateToAccountCreationPageFromLoginPage();
-            Assert.That(_AccountCreationPage.NavigateToLoginPage().IsOnLoginPage());
+            new LoginPage().Navegar_Para_Pagina_De_Criacao_De_Conta_Pela_Pagina_De_Login();
+            Assert.That(_AccountCreationPage.NavigateToLoginPage().Valida_Que_Esta_Na_Pagina());
         }
 
         [Test]
         public void Test_CheckAccountCreationPageWithoutResolvingCaptcha()
         {
-            new LoginPage().NavigateToAccountCreationPageFromLoginPage();
+            new LoginPage().Navegar_Para_Pagina_De_Criacao_De_Conta_Pela_Pagina_De_Login();
             _AccountCreationPage.CreateAccountTypingWithTab(
                 new Guid().ToString(),
                 new Guid() + "@" + new Guid() + ".com.br",
@@ -37,7 +37,7 @@ namespace Mantis_Warley.Tests
         [Test]
         public void Test_CheckNavigationToLostPassPage()
         {
-            new LoginPage().NavigateToAccountCreationPageFromLoginPage();
+            new LoginPage().Navegar_Para_Pagina_De_Criacao_De_Conta_Pela_Pagina_De_Login();
             Assert.That(_AccountCreationPage.NavigateToLostPassPage().IsOnLostPassPage());
         }
     }

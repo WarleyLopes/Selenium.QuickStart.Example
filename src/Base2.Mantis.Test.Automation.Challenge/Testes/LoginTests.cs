@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Configuration;
-using Mantis_Warley.Pages;
+using Mantis_Warley.Paginas;
 using Selenium.QuickStart.Nucleo;
 using NUnit.Framework;
 using Selenium.QuickStart.Atributos;
@@ -20,10 +20,10 @@ namespace Mantis_Warley.Tests
         [Test]
         public void Test_CheckNavigationToLoginPage()
         {
-            ConectorBancoDeDadosSqlite.PreparaArquivoDoBancoDeDadosSeNecessario();
+            ConectorBancoDeDadosSQLite.PreparaArquivoDoBancoDeDadosSeNecessario();
             var a = ConectorBancoDeDadosSQL.ExecutarConsulta("SELECT * FROM BUGS");
-            _LoginPage.NavigateToPage();
-            Assert.That(_LoginPage.IsOnLoginPage());
+            _LoginPage.Navegar_Para_Pagina();
+            Assert.That(_LoginPage.Valida_Que_Esta_Na_Pagina());
         }
 
         [Test, TestCaseSource(typeof(RepositorioDataDriven), "TarefasParaReportarDoCsvMyDataSource")]
@@ -32,16 +32,16 @@ namespace Mantis_Warley.Tests
             string guid = data[0];
             string issueName = data[1];
             string issueDescription = data[2];
-            _LoginPage.Login(user, pass);
-            Assert.That(_LoginPage.IsLoggedIn());
+            _LoginPage.Logar(user, pass);
+            Assert.That(_LoginPage.Valida_Que_Esta_Logado());
         }
 
         [Test]
         public void Test_CheckInvalidLoginAttempt()
         {
-            _LoginPage.Login(Guid.NewGuid().ToString(), Guid.NewGuid().ToString());
+            _LoginPage.Logar(Guid.NewGuid().ToString(), Guid.NewGuid().ToString());
             Assert.That(_LoginPage.
-                IsErrorMessageCaseInsensitiveVisibleAnywherePartiallyOrNot(
+                Valida_Se_Existe_Texto_Na_Pagina_Com_Case_Sensitive(
                 "conta pode estar desativada ou bloqueada ou o nome de usuário " +
                 "e a senha que você digitou não estão corretos"));
         }
@@ -49,13 +49,13 @@ namespace Mantis_Warley.Tests
         [Test]
         public void Test_CheckNavigationToAccountCreationPageFromLoginPage()
         {
-            Assert.That(_LoginPage.NavigateToAccountCreationPageFromLoginPage().IsOnAccountCreationPage());
+            Assert.That(_LoginPage.Navegar_Para_Pagina_De_Criacao_De_Conta_Pela_Pagina_De_Login().IsOnAccountCreationPage());
         }
 
         [Test]
         public void Test_CheckNavigationToLostPassPageUponTypingInUsernameFirstly()
         {
-            Assert.That(_LoginPage.TypeUserAndClickToRecoverForgottenPassword(user).IsOnLostPassPage());
+            Assert.That(_LoginPage.Digita_Usuario_E_Clica_Para_Recuperar_Senha(user).IsOnLostPassPage());
         }
     }
 }

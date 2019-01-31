@@ -1,7 +1,7 @@
 ﻿using Selenium.QuickStart.Nucleo;
 using OpenQA.Selenium;
 
-namespace Mantis_Warley.Pages
+namespace Mantis_Warley.Paginas
 {
     public class AccountCreationPage
     {

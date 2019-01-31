@@ -6,7 +6,7 @@ namespace Base2.Mantis.Test.Automation.Challenge.Resources
     /// <summary>
     /// Classe implementada pela necessidade de se preparar um arquivo de banco de dados do Sqlite na primeira execução do projeto
     /// </summary>
-    public static class ConectorBancoDeDadosSqlite
+    public static class ConectorBancoDeDadosSQLite
     {
         /// <summary>
         /// Verifica se o arquivo de banco de dados (.sqlite) existe, se não, cria ele com uma certa estrutura de tabela
