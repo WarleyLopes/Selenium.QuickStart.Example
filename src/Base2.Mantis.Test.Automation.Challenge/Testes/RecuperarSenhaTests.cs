@@ -13,6 +13,7 @@ namespace Desafio.Base2.Mantis.Testes
     /// </summary>
     public class RecuperarSenhaTests : BaseDeTeste
     {
+        #region InstanciacaoDoPOM
         //O padrão de instanciação do objeto POM da página a ser testada gera um warning sobre criação
         //de um novo objeto e não estar assinalando valor à ele portanto tendo um valor nulo o que nesse
         //caso não é válido de fato pois suas propriedades (elementos) são privates e já têm seus valores
@@ -24,11 +25,15 @@ namespace Desafio.Base2.Mantis.Testes
         [PaginaEmPageObjectModel] RecuperarSenhaPage Pagina_De_Recuperacao_De_Senha;
 
         #pragma warning restore CS0649
+        #endregion
 
+        #region VariaveisReutilizadasPelaClasseDeTestes
         //Variáveis que podem ser utilizadas entre os testes desse contexto
         public string user = ConfigurationManager.AppSettings["USERNAME"];
         public string email = ConfigurationManager.AppSettings["EMAIL"];
+        #endregion
 
+        #region MetodosParaRealizarTestesDaPaginaDeLogin
         [Test, Description("Valida o fluxo correto de navegação para página de login" +
             " a partir da página de recuperação de senha")]
         public void Teste_Navegacao_Para_Pagina_De_Login()
@@ -104,5 +109,6 @@ namespace Desafio.Base2.Mantis.Testes
             Assert.That(Pagina_De_Recuperacao_De_Senha.Valida_Exibicao_De_Mensagem_De_Tentativa_De_Recuperacao_De_Senha(
                 "informação fornecida não combina com nenhuma conta registrada"));
         }
+        #endregion
     }
 }

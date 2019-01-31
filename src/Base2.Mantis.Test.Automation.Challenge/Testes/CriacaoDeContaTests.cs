@@ -13,6 +13,7 @@ namespace Desafio.Base2.Mantis.Testes
     /// </summary>
     public class CriacaoDeContaTests : BaseDeTeste
     {
+        #region InstanciacaoDoPOM
         //O padrão de instanciação do objeto POM da página a ser testada gera um warning sobre criação
         //de um novo objeto e não estar assinalando valor à ele portanto tendo um valor nulo o que nesse
         //caso não é válido de fato pois suas propriedades (elementos) são privates e já têm seus valores
@@ -24,12 +25,15 @@ namespace Desafio.Base2.Mantis.Testes
         [PaginaEmPageObjectModel] CriacaoDeContaPage Pagina_De_Criacao_De_Conta;
 
         #pragma warning restore CS0649
+        #endregion
 
+        #region VariaveisReutilizadasPelaClasseDeTestes
         //Variáveis que podem ser utilizadas entre os testes desse contexto
         public string usuario = ConfigurationManager.AppSettings["USERNAME"];
         public string senha = ConfigurationManager.AppSettings["PASSWORD"];
+        #endregion
 
-
+        #region MetodosParaRealizarTestesDaPaginaDeCriacaoDeConta
         [Test]
         [Description("Valida o fluxo correto de navegação para página" +
             " de criação de conta através da página de login")]
@@ -67,5 +71,6 @@ namespace Desafio.Base2.Mantis.Testes
             Assert.That(Pagina_De_Criacao_De_Conta.
                 Navegar_Para_Pagina_De_Recuperacao_De_Senha().Valida_Se_Esta_Na_Pagina());
         }
+        #endregion
     }
 }
