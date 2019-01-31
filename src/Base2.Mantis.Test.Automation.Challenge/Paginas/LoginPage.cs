@@ -45,7 +45,7 @@ namespace Mantis_Warley.Paginas
         /// </summary>
         /// <param name="usuario">Usuário a ser digitado na caixa de texto usuário da página</param>
         /// <param name="senha">Senha a ser digitada na caixa de texto de senha da página</param>
-        public void Logar(string usuario, string senha)
+        public void Efetuar_Login(string usuario, string senha)
         {
             Input_Usuario.SendKeys(usuario);
             Bto_Login.Click();
@@ -79,7 +79,7 @@ namespace Mantis_Warley.Paginas
         /// </summary>
         /// <param name="texto">Texto a ser procurado dentro de um tag html p (parágrafo)</param>
         /// <returns>Retorna um bool true ou false para validações</returns>
-        public bool Valida_Exibicao_De_Texto_Na_Pagina_Com_Case_Sensitive(string texto)
+        public bool Valida_Exibicao_De_Texto_Com_Case_Sensitive(string texto)
         {
             return GerenciadorDoWebDriver.ProcuraElementoAguardandoAparecer(By.XPath("//p[text()[contains(., '" + texto + "')]]")).Displayed;
         }
@@ -89,7 +89,7 @@ namespace Mantis_Warley.Paginas
         /// </summary>
         /// <param name="user">Parâmetro string com o usuário a ser digitado na caixa de texto para usuário na página de login</param>
         /// <returns>Retorna o objeto POM da página de recuperação de senha para continuar interações e/ou validações</returns>
-        public RecuperarSenhaPage Digita_Usuario_E_Clica_Para_Navegar_Para_Recuperar_Senha(string user)
+        public RecuperarSenhaPage Digita_Usuario_E_Clica_Para_Recuperar_Senha(string user)
         {
             Input_Usuario.SendKeys(user);
             Bto_Login.Click();

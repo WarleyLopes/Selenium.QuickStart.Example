@@ -21,7 +21,7 @@ namespace Mantis_Warley.Testes
         /// <summary>
         /// Objeto da classe onde os objetos e métodos de interação da página de criação de conta foram mapeados
         /// </summary>
-        [PaginaEmPageObjectModel] readonly CriacaoDeContaPage Pagina_De_Criacao_De_Conta;
+        [PaginaEmPageObjectModel] CriacaoDeContaPage Pagina_De_Criacao_De_Conta;
 
         #pragma warning restore CS0649
 
@@ -29,30 +29,43 @@ namespace Mantis_Warley.Testes
         public string usuario = ConfigurationManager.AppSettings["USERNAME"];
         public string senha = ConfigurationManager.AppSettings["PASSWORD"];
 
+
         [Test]
-        public void Test_CheckNavigationToLoginPage()
+        [Description("Valida o fluxo correto de navegação para página" +
+            " de criação de conta através da página de login")]
+        public void Teste_Navegacao_Para_Pagina_De_Login()
         {
             new LoginPage().Navegar_Para_Pagina_De_Criacao_De_Conta();
+
             Assert.That(Pagina_De_Criacao_De_Conta.Navegar_Para_Pagina_De_Login().Valida_Se_Esta_Na_Pagina());
         }
 
         [Test]
-        public void Test_CheckAccountCreationPageWithoutResolvingCaptcha()
+        [Description("Valida o correto funcionamento da validação de captcha ao tentar efetuar" +
+            " uma criação de conta digitando um usuário, e-mail e captcha aleatórios")]
+        public void Teste_Tentar_Criar_Nova_Conta_Sem_Resolver_Captcha()
         {
             new LoginPage().Navegar_Para_Pagina_De_Criacao_De_Conta();
+            
             Pagina_De_Criacao_De_Conta.Efetuar_Criacao_De_Conta_Digitando_Com_Tab(
                 new Guid().ToString(),
                 new Guid() + "@" + new Guid() + ".com.br",
                 new Random().Next(000000, 999999).ToString("000000")
                 );
-            Assert.That(Pagina_De_Criacao_De_Conta.Valida_Exibicao_De_Mensagem_De_Tentativa_De_Criacao_De_Conta("código de confirmação não combina"));
+
+            Assert.That(Pagina_De_Criacao_De_Conta.
+                Valida_Exibicao_De_Mensagem_De_Tentativa_De_Criacao_De_Conta("código de confirmação não combina"));
         }
 
         [Test]
-        public void Test_CheckNavigationToLostPassPage()
+        [Description("Valida o fluxo correto de navegação para página de" +
+            " recuperação de senha através da página de criação de conta")]
+        public void Teste_Navegacao_Para_Pagina_De_Recuperacao_De_Senha()
         {
             new LoginPage().Navegar_Para_Pagina_De_Criacao_De_Conta();
-            Assert.That(Pagina_De_Criacao_De_Conta.Navegar_Para_Pagina_De_Recuperacao_De_Senha().Valida_Se_Esta_Na_Pagina());
+
+            Assert.That(Pagina_De_Criacao_De_Conta.
+                Navegar_Para_Pagina_De_Recuperacao_De_Senha().Valida_Se_Esta_Na_Pagina());
         }
     }
 }
