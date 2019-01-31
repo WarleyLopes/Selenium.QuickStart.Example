@@ -127,14 +127,14 @@
     </Compile>
     <Compile Include="Resources\ConectorBancoDeDadosSQLite.cs" />
     <Compile Include="Resources\RepositorioDataDriven.cs" />
-    <Compile Include="Paginas\AccountCreationPage.cs" />
+    <Compile Include="Paginas\CriacaoDeContaPage.cs" />
     <Compile Include="Paginas\LoginPage.cs" />
-    <Compile Include="Paginas\LostPassPage.cs" />
+    <Compile Include="Paginas\RecuperarSenhaPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Testes\AccountCreationTests.cs" />
+    <Compile Include="Testes\CriacaoDeContaTests.cs" />
     <Compile Include="Testes\LoginTests.cs" />
-    <Compile Include="Testes\LostPassTests.cs" />
-    <Compile Include="Testes\TestFinishTasks.cs" />
+    <Compile Include="Testes\RecuperarSenhaTests.cs" />
+    <Compile Include="Testes\TarefaDeFinalizacaoDeTestes.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">

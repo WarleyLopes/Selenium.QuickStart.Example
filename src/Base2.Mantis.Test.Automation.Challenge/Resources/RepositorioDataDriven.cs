@@ -6,7 +6,7 @@ using System.Resources;
 namespace Base2.Mantis.Test.Automation.Challenge.Resources
 {
     /// <summary>
-    /// Classe para implementar a forma que DataDriven é introduzido aos metodos de testes
+    /// Classe para implementar a forma que DataDriven é fornecido aos metodos de testes
     /// </summary>
     public class RepositorioDataDriven
     {

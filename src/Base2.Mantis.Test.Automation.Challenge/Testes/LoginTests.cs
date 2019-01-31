@@ -7,7 +7,7 @@ using Selenium.QuickStart.Atributos;
 using Selenium.QuickStart.Utilidades;
 using Base2.Mantis.Test.Automation.Challenge.Resources;
 
-namespace Mantis_Warley.Tests
+namespace Mantis_Warley.Testes
 {
     public class LoginTests : BaseDeTeste
     {
@@ -23,7 +23,7 @@ namespace Mantis_Warley.Tests
             ConectorBancoDeDadosSQLite.PreparaArquivoDoBancoDeDadosSeNecessario();
             var a = ConectorBancoDeDadosSQL.ExecutarConsulta("SELECT * FROM BUGS");
             _LoginPage.Navegar_Para_Pagina();
-            Assert.That(_LoginPage.Valida_Que_Esta_Na_Pagina());
+            Assert.That(_LoginPage.Valida_Se_Esta_Na_Pagina());
         }
 
         [Test, TestCaseSource(typeof(RepositorioDataDriven), "TarefasParaReportarDoCsvMyDataSource")]
@@ -41,7 +41,7 @@ namespace Mantis_Warley.Tests
         {
             _LoginPage.Logar(Guid.NewGuid().ToString(), Guid.NewGuid().ToString());
             Assert.That(_LoginPage.
-                Valida_Se_Existe_Texto_Na_Pagina_Com_Case_Sensitive(
+                Valida_Exibicao_De_Texto_Na_Pagina_Com_Case_Sensitive(
                 "conta pode estar desativada ou bloqueada ou o nome de usuário " +
                 "e a senha que você digitou não estão corretos"));
         }
@@ -49,13 +49,13 @@ namespace Mantis_Warley.Tests
         [Test]
         public void Test_CheckNavigationToAccountCreationPageFromLoginPage()
         {
-            Assert.That(_LoginPage.Navegar_Para_Pagina_De_Criacao_De_Conta_Pela_Pagina_De_Login().IsOnAccountCreationPage());
+            Assert.That(_LoginPage.Navegar_Para_Pagina_De_Criacao_De_Conta().Valida_Se_Esta_Na_Pagina());
         }
 
         [Test]
         public void Test_CheckNavigationToLostPassPageUponTypingInUsernameFirstly()
         {
-            Assert.That(_LoginPage.Digita_Usuario_E_Clica_Para_Recuperar_Senha(user).IsOnLostPassPage());
+            Assert.That(_LoginPage.Digita_Usuario_E_Clica_Para_Navegar_Para_Recuperar_Senha(user).Valida_Se_Esta_Na_Pagina());
         }
     }
 }
